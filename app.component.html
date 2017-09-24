@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h3>
+    Welcome to {{title}}!
+  </h3>
+</div>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div formGroupName="user">
+    <div><label>Name : <input type="text" formControlName="name" required></label></div>
+    <div class="alert" *ngIf="!myForm.controls['user'].controls['name'].valid">Required</div>
+    <div><label>Email : <input type="email" formControlName="email" required></label></div>
+    <div class="alert" *ngIf="!myForm.controls['user'].controls['email'].valid">Required Valid Email</div>
+    <div><label>Post : <textarea type="text" formControlName="post"></textarea></label></div>
+    <div class="alert" *ngIf="!myForm.controls['user'].controls['post'].valid">Minimum length 10</div>
+  </div>
+  <div>
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+    <button (click)="getData()">GetData</button>
+  </div>
+</form>
+
+
+
+
